@@ -36,7 +36,7 @@ fetch(encodeURIComponent('웹소설대본_컷16-21.txt')+'?v='+Date.now()).then(
   for(const l of lines){
     if(l.startsWith('[그림:')){
       started=true;
-      const num=(l.match(/컷\s*(\d+)/)||[])[1];
+      const num=(l.match(/컷\s*(\d+[a-z]?)/)||[])[1];
       const fig=document.createElement('div');fig.className='fig';
       fig.innerHTML='<span class="cutno">1화 '+num+'컷</span><img alt="1화 '+num+'컷" src="'+encodeURIComponent('01화_컷'+num+'.png')+'?v='+Date.now()+'">';
       story.appendChild(fig);blank=0;continue;
