@@ -30,7 +30,7 @@ footer{max-width:1000px;margin:0 auto;padding:0 20px 40px;color:#6f7589;font-siz
 <main id="list">불러오는 중...</main>
 <footer id="foot"></footer>
 <script>
-const SCRIPT_URL='script/'+encodeURIComponent('웹소설대본_컷16-21.txt');
+const SCRIPT_URL=''+encodeURIComponent('웹소설대본_컷16-21.txt');
 fetch(SCRIPT_URL+'?v='+Date.now()).then(r=>r.text()).then(t=>{
   const lines=t.replace(/\r/g,'').split('\n');
   const first=lines.findIndex(l=>l.startsWith('[그림:'));
@@ -44,7 +44,7 @@ fetch(SCRIPT_URL+'?v='+Date.now()).then(r=>r.text()).then(t=>{
       const m=l.match(/컷\s*(\d+)/);const num=m?m[1]:'';
       const desc=l.replace(/^\[그림:\s*컷\d+\s*-?\s*/,'').replace(/\]$/,'');
       const sec=document.createElement('section');sec.className='cut';
-      sec.innerHTML='<div><img alt="컷'+num+'" src="cuts/'+encodeURIComponent('01화_컷'+num+'.png')+'?v='+Date.now()+'"></div><div class="txt"><span class="tag">1화 '+num+'컷</span><div class="desc"></div><div class="body"></div></div>';
+      sec.innerHTML='<div><img alt="컷'+num+'" src="'+encodeURIComponent('01화_컷'+num+'.png')+'?v='+Date.now()+'"></div><div class="txt"><span class="tag">1화 '+num+'컷</span><div class="desc"></div><div class="body"></div></div>';
       sec.querySelector('.desc').textContent=desc;
       list.appendChild(sec);cur=sec.querySelector('.body');continue;
     }
